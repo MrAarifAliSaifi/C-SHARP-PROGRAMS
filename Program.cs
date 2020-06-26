@@ -1,29 +1,37 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;AA
+using System.Threading.Tasks;
 
-namespace duplicateNumberInArray
+namespace palindromNumber
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] ar = { 1,2,3,4,4,5,6,3,4,8,4,8,3,5,7,23,6,5,6};
-            int size = ar.Length;Console.WriteLine("THE DUPLICATE ELEMENTS ARE");
 
-            for (int i = 0; i <size; i++)
+            int test = 0;
+            Console.WriteLine("PLEASE ENTER THE NO TO BE CHECKED");     //taking input from the user 
+            int n = Convert.ToInt32(Console.ReadLine());
+            int temp = n;
+            while (n > 0)
             {
-                for (int j = i+1; j <size; j++)
-                {
-                    if(ar[i]==ar[j])
-                     Console.Write(" "+ar[j]);
-                    
-                }
-               
+                int remainder = n % 10;
+                test = test * 10 + remainder;   //to avoid overwrite condition
+                n = n /10;
             }
-            Console.ReadLine();
+            if (test == temp)
+            {
+                Console.WriteLine("YES THE ENTERED NO IS PALINDROM");
+            }
+            else
+                Console.WriteLine("NO IS NOT PALINDROM");
+                Console.ReadLine();
+
+
         }
     }
 }
